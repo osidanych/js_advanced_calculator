@@ -6,7 +6,9 @@
 function makeCalculator() {
   const calculator = {
     operate(callback, x) {
-      callback.call(this, x);
+      if (typeof callback === 'function') {
+        callback.call(this, x);
+      }
 
       return this;
     },
